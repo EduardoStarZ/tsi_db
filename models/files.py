@@ -19,5 +19,5 @@ def queryFiles(request):
                 
         return files
     
-def insertFiles(request):
-    dbInsert(files)
+# def insertFiles(request):
+    # dbInsert(files)

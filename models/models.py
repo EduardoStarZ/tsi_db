@@ -10,7 +10,7 @@ class File(models.Model):
     size = models.IntegerField()
     CuratorName = models.CharField(max_length=355)
     CuratorID = models.ForeignKey(models.Curator, verbose_name= "Curator ID", on_delete= models.CASCADE)
-    semester
+    semesterID = models.ForeignKey(models.content, verbose_name= "Semester ID", on_delete=models.CASCADE) 
 
 class Curator(models.Model):
     id = models.UUIDField(primary_key=True)
