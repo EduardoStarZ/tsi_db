@@ -5,4 +5,7 @@ from django.template import loader
 
 def main(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    context = {
+        
+    }
+    return HttpResponse(template.render(context, request))
