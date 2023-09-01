@@ -4,34 +4,39 @@ from django import forms
 
 # Create your models here.
 
-class File(models.Model):
+class Semester(models.Model):
     id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=355, null=False)
-    senderName = models.CharField(max_length=355, null=False)
-    contentName = models.CharField(max_length=100, null=False)
-    CuratorName = models.CharField(max_length=355, null=False)
-    # CuratorID = models.ForeignKey(models.Curator, verbose_name= "Curator ID", on_delete= models.CASCADE)
-    # semesterID = models.ForeignKey(models.content, verbose_name= "Semester ID", on_delete=models.CASCADE)
-    uploadDate = models.DateTimeField(null=False)
+    name = models.CharField(max_length= 100, null=False)
+    
+    def __str__(self):
+        return f"{self.id} {self.name}"
 
 class Curator(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=300, null=False)
     email = models.EmailField(null=False)
-    password = models.BinaryField(null=False)
-    decryptKey = models.BinaryField(null=False)
+    
+    def __str__(self):
+        return f"{self.name}"
     
 class Content(models.Model):
-    semester_choices = [
-        ('1', 'First'),
-        ('2', 'Second'),
-        ('3', 'Third'),
-        ('4', 'Fourth'),
-        ('5', 'Fifth'),
-        ('6', 'Optatives'),
-        ('7', 'Extra')
-    ]
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100, null=False)
-    semester = models.IntegerField()
+    semester = models.ForeignKey(Semester, verbose_name= "Semester Value", on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f"{self.semester} {self.name}"
+    
+class File(models.Model):
+    
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=355, null=False)
+    senderName = models.CharField(max_length=355, null=False)
+    contentName = models.CharField(max_length=100, null=False)
+    Curator = models.ForeignKey(Curator, verbose_name= "Curator", on_delete= models.CASCADE)
+    Semester = models.ForeignKey(Semester, verbose_name="", on_delete= models.CASCADE)
+    Content = models.ForeignKey(Content, verbose_name= "Content", on_delete=models.CASCADE)
+    uploadDate = models.DateTimeField(null=False)
+    
+    def __str__(self):
+        return f"{self.contentName} {self.name}"

@@ -1,12 +1,12 @@
 from django.forms import ModelForm
-from models.models import File
+from .models import File, Content
 
-class insertDataForm(ModelForm):
+class FileForm(ModelForm):
     class Meta:
         model = File
-        fields = ("name", "senderName", "contentName", "CuratorName", "uploadDate")
+        fields = '__all__'
 
-class queryDataForm(ModelForm):
+class ContentForm(ModelForm):
     class Meta:
-        model = File
-        fields = ("name", "contentName", "CuratorName", "uploadDate")
+        model = Content
+        fields = '__all__'

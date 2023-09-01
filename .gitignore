@@ -1,3 +1,6 @@
-**/myvenv/**
+# Django #
+
+*.log
+*.pot
 *.pyc
-**/__pycache__/**
+**/__pycache__/
