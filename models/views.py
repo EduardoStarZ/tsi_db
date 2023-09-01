@@ -7,7 +7,7 @@ from .models import File, Content, Semester
 
 def main(request):
     file_form = FileForm()
-    content_options = Content.objects.all(semester = 1)
+    content = File.objects.all()
     
     if request.method == 'POST':
         file_form = FileForm(request.POST)
@@ -17,7 +17,7 @@ def main(request):
     
     template = loader.get_template('index.html')
     context = {
-        'file_form': file_form
-        
+        'file_form': file_form,
+        'content': content
     }
     return HttpResponse(template.render(context, request))

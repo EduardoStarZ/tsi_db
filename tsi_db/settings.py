@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'models',
+    'widget_tweaks',
     'django_htmx',
     'django.contrib.admin',
     'django.contrib.auth',

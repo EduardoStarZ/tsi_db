@@ -1,13 +1,24 @@
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang-pt-br>
     {% include 'head_meta.html' %}
 
     <body>
-        <form action="" method="post"> 
+        <form id="form" method="post" action="" autocomplete="off" onsubmit="this.preventDefault(); this.submit(); this.reset()"> 
         {% csrf_token %}
-        {{ file_form }}
+        {% render_field file_form.name placeholder='Nome do arquivo' %}
+        {% render_field file_form.senderName placeholder='Nome do remetente' %}
+        {% render_field file_form.curator placeholder='Selecione' %}
+        {% render_field file_form.semester placeholder='Selecione' %}
+        {% render_field file_form.content placeholder='Selecione' %}
+        {% render_field file_form.uploadDate placeholder='dd/mm/yyyy' type='date' %}
         <input type="submit" />
         </form>
+
+        <p>
+            {{ content }}
+        </p>
     </body>
 
 </html>
