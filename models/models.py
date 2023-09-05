@@ -7,7 +7,7 @@ class Semester(models.Model):
     name = models.CharField(max_length= 100, null=False)
     
     def __str__(self):
-        return f"{self.id} {self.name}"
+        return f"{self.id}{self.name}"
 
 class Curator(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -20,7 +20,7 @@ class Curator(models.Model):
 class Content(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100, null=False)
-    semester = models.ForeignKey(Semester, verbose_name= "Semester Value", on_delete=models.CASCADE)
+    semester = models.ForeignKey(Semester, verbose_name= "", on_delete=models.CASCADE)
     
     def __str__(self):
         return f"{self.semester} {self.name}"

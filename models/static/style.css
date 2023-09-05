@@ -5,10 +5,31 @@
 }
 
 form {
-    margin-left: 45vw;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 10%;
     border: solid 2px #000000;
     width: fit-content;
     height: fit-content;
     padding: 2vw;
+}
+
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    border: solid 2px #000000;
+    border-collapse: collapse;
+}
+
+td, th{
+    text-align: justify;
+    padding: .5vw;
+    border: solid 2px #000000;
+}
+
+th{
+    background-color: #010101;
+    color: #DDDDDD;
 }
