@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .forms import FileForm
-from .models import File, Content, Semester
+from .models import File
 # Create your views here.
 
 def main(request):
@@ -16,18 +16,9 @@ def main(request):
             file_form.save()
             return redirect("main")
     
-    template = loader.get_template('index.html')
+    template = 'index.html'
     context = {
         'file_form': file_form,
         'content': content
     }
-    return HttpResponse(template.render(context, request))
-
-def content_options(request):
-    semester = request.GET.get("semester")
-    content = Content.objects.filter(semester=semester)
-    template = loader.get_template('content_options.html')
-    context = {
-        'content': content
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, template, context)

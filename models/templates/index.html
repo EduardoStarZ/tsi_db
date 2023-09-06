@@ -5,44 +5,50 @@
     {% include 'head_meta.html' %}
 
         <body>
-            <form id="form" method="post" action="" autocomplete="off" onsubmit="" > 
+
+            
+            <form id="form" method="post" action="" autocomplete="off" class="box"> 
                 {% csrf_token %}
-                {% render_field file_form.name placeholder='Nome do arquivo' %} <br/>
-                {% render_field file_form.senderName placeholder='Nome do remetente' %} <br/>
-                {% render_field file_form.curator placeholder='Selecione' %} <br/>
-                {% render_field file_form.semester placeholder='Selecione' hx-get="/content_options" hx-target="#content" hx-trigger="change, load" %} <br/>
-                {% render_field file_form.content id="content" placeholder='Selecione' %} <br/>
-                {% render_field file_form.uploadDate placeholder='dd/mm/yyyy' type='date' %} <br/>
-                <input type="submit" value="Enviar" />
+                {% render_field file_form.name class="input" class="form_item" placeholder='Nome do arquivo' %} <br/>
+                {% render_field file_form.sender class="input" class="form_item" placeholder='Nome do remetente' %} <br/>
+                {% render_field file_form.curator class="input" class="form_item" placeholder='Selecione' %} <br/>
+                {% render_field file_form.content class="input" class="form_item" id="content" placeholder='Selecione' %} <br/>
+                {% render_field file_form.uploadDate class="input" class="form_item" placeholder='dd/mm/yyyy' type='date' %} <br/>
+                <input type="submit" class="button" value="Enviar" />
+                <input type="reset" class="button" value="Limpar" />
             </form>
+            
 
-        <br/>
-        <br/>
-        <br/>
+            <br/>
+            <br/>
+            <br/>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>File Name</th>
-                    <th>Sender Name</th>
-                    <th>Responsible Curator</th>
-                    <th>Semester</th>
-                    <th>Content</th>
-                    <th>Date Of Upload</th>
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <tr>
+                        <th>ID</th>
+                        <th>File Name</th>
+                        <th>Sender Name</th>
+                        <th>Responsible Curator</th>
+                        <th>Semester</th>
+                        <th>Content</th>
+                        <th>Date Of Upload</th>
 
-                </tr>
-                {% for x in content %}
-                <tr>
-                    <td>{{ x.id }}</td>
-                    <td>{{ x.name }}</td>
-                    <td>{{ x.senderName }}</td>
-                    <td>{{ x.curator }}</td>
-                    <td>{{ x.semester }}</td>
-                    <td>{{ x.content }}</td>
-                    <td>{{ x.uploadDate }}</td>
-                <tr>
-                {% endfor %}
-            </table>
+                    </tr>
+                    {% for x in content %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.sender }}</td>
+                        <td>{{ x.curator }}</td>
+                        <td>{{ x.semester }}</td>
+                        <td>{{ x.content }}</td>
+                        <td>{{ x.uploadDate }}</td>
+                    <tr>
+                    {% endfor %}
+                </table>
+                <br />
+            </div>
     
     </body>
 

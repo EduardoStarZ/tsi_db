@@ -20,6 +20,5 @@ from models import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main, name='main'),
-    path('content_options/', views.content_options, name='content_options')
+    path('', views.main, name='main')
 ]
