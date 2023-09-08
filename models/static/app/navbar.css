@@ -1,0 +1,51 @@
+ul.navbar {
+    position: fixed;
+    top: 0;
+    margin: 37vw;
+    margin-top: 0;
+    list-style-type: none;
+    width: 25vw;
+    height: 6vh;
+    padding: 0;
+    overflow: hidden;
+    background: #212121;
+    border-radius: 20px;
+
+}
+
+a.navbar {
+
+    text-decoration: none;
+    display: block;
+    padding: 14px 14px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+a:link,
+a:visited,
+a:active {
+
+    font-size: .850rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 250ms linear;
+
+}
+
+a.navbar:hover {
+    border: thin 0.2vh #AAAAAA;
+    background-color: #009999;
+    text-shadow: 1px 1px 2px #212144, 0 0 1em #FFFFFF, 0 0 0.2em #FFFFFF;
+    transition: 100ms linear;
+
+}

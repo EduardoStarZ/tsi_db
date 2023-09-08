@@ -1,0 +1,20 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'head_meta.html' %}
+        <link rel="stylesheet" href="{% static 'registration/login.css' %}" />
+    </head>
+        <body>
+            <form method="post" autocomplete="off" class="box">
+                {% csrf_token %}
+                <h1 class="title">Log-In</h1>
+                {% render_field form.username class='input' placeholder='Nome' %} <br />
+                {% render_field form.password class='input' placeholder='Senha' %}
+                <input type="submit" class="button" value="Enviar" />
+                <input type="reset" class="button" value="Limpar" />
+            </form>
+        </body>
+    </html>

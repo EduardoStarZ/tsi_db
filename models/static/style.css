@@ -35,22 +35,8 @@ input.button[type="reset"] {
     color: #DDDDDD;
 }
 
-/* table {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    table-layout: auto;
-    border: solid 2px #000000;
-    border-collapse: collapse;
-}
-
-td, th{
-    text-align: justify;
-    padding: .5vw;
-    border: solid 2px #000000;
-}
-
-th{
-    background-color: #010101;
+a.button {
+    width: 49%;
+    background-color: #DD0000;
     color: #DDDDDD;
-} */
+}

@@ -1,0 +1,63 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang-pt-br>
+    <head>
+        {% include 'head_meta.html' %}
+    </head>
+    
+    {% if user.is_authenticated %}
+        <body>
+
+            <form id="form" method="post" action="" autocomplete="off" class="box"> 
+                {% csrf_token %}
+                {% render_field file_form.name class="input" placeholder='Nome do arquivo' %} <br/>
+                {% render_field file_form.sender class="input" placeholder='Nome do remetente' %} <br/>
+                {% render_field file_form.curator class="input" placeholder='Selecione' %} <br/>
+                {% render_field file_form.content class="input" id="content" placeholder='Selecione' %} <br/>
+                {% render_field file_form.uploadDate class="input" placeholder='dd/mm/yyyy' type='date' %} <br/>
+                <input type="submit" class="button" value="Enviar" />
+                <input type="reset" class="button" value="Limpar" />
+            </form>
+            
+
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="table-container">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <tr>
+                        <th>ID</th>
+                        <th>File Name</th>
+                        <th>Sender Name</th>
+                        <th>Responsible Curator</th>
+                        <th>Semester</th>
+                        <th>Content</th>
+                        <th>Date Of Upload</th>
+
+                    </tr>
+                    {% for x in content %}
+                    <tr>
+                        <td>{{ x.id }}</td>
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.sender }}</td>
+                        <td>{{ x.curator }}</td>
+                        <td>{{ x.content.semester }}</td>
+                        <td>{{ x.content.name }}</td>
+                        <td>{{ x.uploadDate }}</td>
+                    <tr>
+                    {% endfor %}
+                </table>
+                <br />
+            </div>
+    
+    </body>
+    {% else %}
+    <form action="/accounts/login" method="post" class="box">
+            <h1 class="title">Você não está logado</h1>
+            <input type="submit" class="button" value="Fazer Login"/>
+            <a href="/" class="button">Voltar</a>
+    </form>
+    {% endif %}
+</html>

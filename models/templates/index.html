@@ -2,27 +2,12 @@
 
 <!DOCTYPE html>
 <html lang-pt-br>
-    {% include 'head_meta.html' %}
+    <head>
+        {% include 'head_meta.html' %}
+    </head>
+    <body>
 
-        <body>
-
-            
-            <form id="form" method="post" action="" autocomplete="off" class="box"> 
-                {% csrf_token %}
-                {% render_field file_form.name class="input" class="form_item" placeholder='Nome do arquivo' %} <br/>
-                {% render_field file_form.sender class="input" class="form_item" placeholder='Nome do remetente' %} <br/>
-                {% render_field file_form.curator class="input" class="form_item" placeholder='Selecione' %} <br/>
-                {% render_field file_form.content class="input" class="form_item" id="content" placeholder='Selecione' %} <br/>
-                {% render_field file_form.uploadDate class="input" class="form_item" placeholder='dd/mm/yyyy' type='date' %} <br/>
-                <input type="submit" class="button" value="Enviar" />
-                <input type="reset" class="button" value="Limpar" />
-            </form>
-            
-
-            <br/>
-            <br/>
-            <br/>
-
+        {% include 'elements/navUser.html' %}
             <div class="table-container">
                 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                     <tr>
@@ -41,8 +26,8 @@
                         <td>{{ x.name }}</td>
                         <td>{{ x.sender }}</td>
                         <td>{{ x.curator }}</td>
-                        <td>{{ x.semester }}</td>
-                        <td>{{ x.content }}</td>
+                        <td>{{ x.content.semester }}</td>
+                        <td>{{ x.content.name }}</td>
                         <td>{{ x.uploadDate }}</td>
                     <tr>
                     {% endfor %}
@@ -51,5 +36,5 @@
             </div>
     
     </body>
-
+    
 </html>
