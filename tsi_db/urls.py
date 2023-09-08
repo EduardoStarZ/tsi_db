@@ -21,7 +21,8 @@ from models import views
 
 urlpatterns = [
     path('django/', admin.site.urls, name="django-admin"),
-    path('admin', views.admin, name="admin"),
     path('', views.main, name='main'),
+    path('admin/', views.admin, name="admin"),
+    path('search/', views.search, name='search'),
     path('accounts/', include("django.contrib.auth.urls"))
 ]

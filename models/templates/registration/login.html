@@ -6,9 +6,11 @@
     <head>
         {% include 'head_meta.html' %}
         <link rel="stylesheet" href="{% static 'registration/login.css' %}" />
+        <link rel="stylesheet" href="{% static 'app/form.css' %}" />
     </head>
         <body>
-            <form method="post" autocomplete="off" class="box">
+            {% include 'registration/nav.html'%}
+            <form method="post" autocomplete="off" class="box" onsubmit="window.href.replace('/admin/')">
                 {% csrf_token %}
                 <h1 class="title">Log-In</h1>
                 {% render_field form.username class='input' placeholder='Nome' %} <br />

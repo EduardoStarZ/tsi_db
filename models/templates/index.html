@@ -1,40 +1,25 @@
+{% load static %}
 {% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang-pt-br>
     <head>
         {% include 'head_meta.html' %}
+        <link rel="stylesheet" href="{% static 'page/index.css' %}" />
     </head>
     <body>
 
-        {% include 'elements/navUser.html' %}
-            <div class="table-container">
-                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                    <tr>
-                        <th>ID</th>
-                        <th>File Name</th>
-                        <th>Sender Name</th>
-                        <th>Responsible Curator</th>
-                        <th>Semester</th>
-                        <th>Content</th>
-                        <th>Date Of Upload</th>
+        {% include 'elements/user/nav.html' %}
+        
+        <form class="box" hx-trigger="submit" hx-get="/search/" hx-target="#table-space">
+            <input name="q" type="text" placeholder="Search here" class="input" />
+            <input type="submit" class="button is-dark" value="Search" />
+            <input type="reset" class="button is-dark" value="Clear" hx-trigger="click" hx-target="#table-space" hx-get="/search/?q= " />
+        </form>
 
-                    </tr>
-                    {% for x in content %}
-                    <tr>
-                        <td>{{ x.id }}</td>
-                        <td>{{ x.name }}</td>
-                        <td>{{ x.sender }}</td>
-                        <td>{{ x.curator }}</td>
-                        <td>{{ x.content.semester }}</td>
-                        <td>{{ x.content.name }}</td>
-                        <td>{{ x.uploadDate }}</td>
-                    <tr>
-                    {% endfor %}
-                </table>
-                <br />
+            <div class="table-container" id="table-space">
+                {% include 'elements/user/table.html' %}
+                <br/>
             </div>
-    
     </body>
-    
 </html>

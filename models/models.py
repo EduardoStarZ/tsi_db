@@ -32,7 +32,7 @@ class File(models.Model):
     sender = models.CharField(max_length=355, null=False, verbose_name="")
     curator = models.ForeignKey(Curator, verbose_name="", on_delete= models.CASCADE)
     content = models.ForeignKey(Content, verbose_name= "", on_delete=models.CASCADE)
-    uploadDate = models.DateTimeField(null=False, verbose_name="")
+    uploadDate = models.DateField(null=False, verbose_name="")
     
     def __str__(self):
         return f"{self.content.semester} - {self.name}"
