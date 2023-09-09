@@ -23,7 +23,7 @@ class Content(models.Model):
     semester = models.ForeignKey(Semester, verbose_name= "", on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.semester} {self.name}"
+        return f"{self.semester} - {self.name}"
     
 class File(models.Model):
     
