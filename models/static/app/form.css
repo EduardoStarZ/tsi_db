@@ -8,14 +8,23 @@ form{
     border: solid 0.01vw #999999;
 }
 
-input.button[type="submit"], a.button {
+input.button[type="submit"] {
     width: 49%;
     background-color: #00BB00;
     color: #DDDDDD;
 }
 
-input.button[type="reset"], a.button:last-child {
+input.button[type="reset"] {
     width: 49%;
     background-color: #DD0000;
     color: #DDDDDD;
+}
+
+input.button.is-dark {
+    width: fit-content;
+    background-color: #212121; 
+}
+
+input.input.is-rounded {
+    width: fit-content;
 }

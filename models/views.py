@@ -38,7 +38,9 @@ def search(request):
     content = File.objects.all()
     
     if query != '': 
-        content = File.objects.filter(Q(name__icontains=query) | Q(content__name__icontains=query))
+        content = File.objects.filter(
+            Q(name__icontains=query) | Q(content__name__icontains=query) | Q(content__semester__id__icontains=query)
+            )
             
     context = {
         'content': content
@@ -50,16 +52,18 @@ def search(request):
 
 
 def admin_search(request):
-    query = request.POST.get("q")
+    query = request.GET.get("q")
     content = File.objects.all()
     
     if query != '': 
-        content = File.objects.filter(Q(name__icontains=query) | Q(content__name__icontains=query))
+        content = File.objects.filter(
+            Q(name__icontains=query) | Q(content__name__icontains=query) | Q(curator__name__icontains=query) | Q(content__semester__id__icontains=query)
+            )
             
     context = {
         'content': content
     }
         
-    template = 'search.html'
+    template = 'admin_search.html'
         
     return render(request, template, context)

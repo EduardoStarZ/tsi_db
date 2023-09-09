@@ -13,8 +13,8 @@
             <form method="post" autocomplete="off" class="box" onsubmit="window.href.replace('/admin/')">
                 {% csrf_token %}
                 <h1 class="title">Log-In</h1>
-                {% render_field form.username class='input' placeholder='Nome' %} <br />
-                {% render_field form.password class='input' placeholder='Senha' %}
+                {% render_field form.username class='input' placeholder='Nome' autocomplete="off" %} <br />
+                {% render_field form.password class='input' placeholder='Senha' autocomplete="off" %}
                 <input type="submit" class="button" value="Enviar" />
                 <input type="reset" class="button" value="Limpar" />
             </form>

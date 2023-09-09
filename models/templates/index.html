@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 
 <!DOCTYPE html>
-<html lang-pt-br>
+<html lang="pt-br">
     <head>
         {% include 'head_meta.html' %}
         <link rel="stylesheet" href="{% static 'page/index.css' %}" />
@@ -11,10 +11,11 @@
 
         {% include 'elements/user/nav.html' %}
         
-        <form class="box" hx-trigger="submit" hx-get="/search/" hx-target="#table-space">
-            <input name="q" type="text" placeholder="Search here" class="input" />
-            <input type="submit" class="button is-dark" value="Search" />
-            <input type="reset" class="button is-dark" value="Clear" hx-trigger="click" hx-target="#table-space" hx-get="/search/?q= " />
+        <form class="box" id="search" hx-trigger="submit" hx-get="/search/" hx-target="#table-space">
+            <h2 class="subtitle">Pesquisar</h2>
+            <input name="q" type="text" placeholder="Search here" class="input is-rounded" autocomplete="off" />
+            <input type="submit" class="button is-dark is-rounded" autocomplete="off" value="Pesquisar" autocomplete="off" />
+            <input type="reset" class="button is-dark is-rounded" autocomplete="off" value="Limpar" hx-trigger="click" hx-target="#table-space" hx-get="/search/?q= " />
         </form>
 
             <div class="table-container" id="table-space">

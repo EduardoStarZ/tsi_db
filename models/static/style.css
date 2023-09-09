@@ -20,3 +20,17 @@ table {
     margin-bottom: 40%;
     text-align: center;
 }
+
+input.is-dark {
+    width: fit-content;
+    background-color: #212121; 
+}
+
+#search {
+    border-radius: 2vw;
+    border: solid 0.2vh #AAAAAA;
+}
+
+table.table.is-narrow th{
+    text-align: center;
+}

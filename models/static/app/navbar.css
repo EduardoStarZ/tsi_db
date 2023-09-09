@@ -42,8 +42,9 @@ a:active {
 }
 
 a.navigation:hover {
-    border: thin 0.2vh #AAAAAA;
-    background-color: #009999;
+    border: thin 0.2vh #DDDDDD;
+    background-color: #AAAAAA;
+    color: #000000;
     text-shadow: 1px 1px 2px #212144, 0 0 1em #FFFFFF, 0 0 0.2em #FFFFFF;
     transition: 100ms linear;
 }
