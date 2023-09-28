@@ -82,6 +82,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    
+    'psql': {
+      'NAME': 'postgres://EduardoStarZ:********@ep-falling-limit-53738980.us-east-2.aws.neon.tech/neondb'  
     }
 }
 
