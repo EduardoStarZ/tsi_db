@@ -12,9 +12,9 @@
 
         {% include 'elements/user/nav.html' %}
         
-        <form class="box" id="search" hx-trigger="submit" hx-get="/search/" hx-target="#table-space">
+        <form class="box" id="search" hx-trigger="submit,keyup changed delay:50ms from:#search_box' " hx-get="/search/" hx-target="#table-space">
             <h2 class="subtitle">Pesquisar</h2>
-            <input name="q" type="text" placeholder="Search here" class="input is-rounded" autocomplete="off" />
+            <input name="q" type="text" placeholder="Search here" class="input is-rounded" autocomplete="off" id="search_box" />
             <input type="submit" class="button is-dark is-rounded" autocomplete="off" value="Pesquisar" />
             <input type="reset" class="button is-dark is-rounded" autocomplete="off" value="Limpar" hx-trigger="click" hx-target="#table-space" hx-get="/search/?q= " />
         </form>
