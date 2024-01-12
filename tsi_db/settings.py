@@ -124,7 +124,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'productionFiles' 
+STATIC_ROOT = BASE_DIR / 'cache'
 
 
 # Default primary key field type
