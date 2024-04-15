@@ -1,4 +1,3 @@
 django
-django-htmx
 django-widget-tweaks
 whitenoise

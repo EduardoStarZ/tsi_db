@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from models.models import File
-from forms import FileForm
+from pages.forms import FileForm
 
 # Create your views here.
 
